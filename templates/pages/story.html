@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>{{story_name}}</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/htmx.org@2.0.1"></script>
+        <script src="https://unpkg.com/htmx-ext-sse@2.2.1/sse.js"></script>
+        <script src="https://unpkg.com/htmx-ext-ws@2.0.0/ws.js"></script>
+    </head>
+
+    <body class="flex flex-col bg-gray-800 text-white h-full p-2">
+        <main class="flex flex-col justify-center items-center gap-10 flex-1">
+            {{page_content}}
+        </main>
+
+        <footer class="flex justify-between">
+            {% if previous is not none %}
+            <a href="/writing/{{story_name}}/{{previous_page}}" class="w-8" >
+                {% include "icons/left.html" %}
+            </a>
+            {% else %}
+            <span class="w-8"></span>
+            {% endif %}
+
+            <strong>{{current_page}}</strong>
+
+            {% if next is not none %}
+            <a href="/writing/{{story_name}}/{{next_page}}" class="w-8" >
+                {% include "icons/right.html" %}
+            </a>
+            {% else %}
+            <span class="w-8"></span>
+            {% endif %}
+        </footer>
+    </body>
+</html>
