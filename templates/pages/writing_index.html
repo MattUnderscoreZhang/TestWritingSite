@@ -8,11 +8,18 @@
     </head>
 
     <body class="flex flex-col bg-gray-800 text-white h-full p-2">
-        <main class="flex flex-col justify-center items-center gap-10 flex-1">
-            {% for story_name in story_names %}
-            <a href="/writing/{{story_name}}/0">
-                <h1>{{story_name}}</h1>
+        <main class="flex flex-col justify-center items-center gap-2 flex-1">
+            <h1 class="text-6xl pb-8">Writing</h1>
+            {% for piece in pieces %}
+            {% if piece[1] %}
+            <a href="/writing/{{piece[0]}}/0">
+                {{piece[0]}}
             </a>
+            {% else %}
+            <a href="/writing/{{piece[0]}}">
+                {{piece[0]}}
+            </a>
+            {% endif %}
             {% endfor %}
         </main>
     </body>
